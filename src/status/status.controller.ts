@@ -1,18 +1,20 @@
-import { Controller, Get, Post, Body, Param, Patch, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Patch, Delete, Query } from '@nestjs/common';
 import { StatusService } from './status.service';
+import { CreateStatusDTO } from './dto/create-status.dto';
+import { StatusFilterDTO } from './dto/status-filter.dto';
 
 @Controller('status')
 export class StatusController {
     constructor(private readonly statusService: StatusService) {}
 
     @Post('update')
-    async update(@Body('text') statusText: string) {
-        return await this.statusService.create(statusText)
+    async createStatus(@Body() statusDto: CreateStatusDTO) {
+        return await this.statusService.create(statusDto)
     }
 
     @Get()
-    async findAll() {
-        return await this.statusService.findAll();
+    async findAll(@Query() statusFilterDTO: StatusFilterDTO) {
+        return await this.statusService.findAll(statusFilterDTO);
     }
 
     @Get(':id')
@@ -21,8 +23,8 @@ export class StatusController {
     }
 
     @Patch(':id')
-    async updateStatus(@Param('id') id: string, @Body('text') statusText: string) {
-        return await this.statusService.updateStatus(id, statusText)
+    async updateStatus(@Param('id') id: string, @Body() statusDto: CreateStatusDTO) {
+        return await this.statusService.updateStatus(id, statusDto)
     }
 
     @Delete(':id')
