@@ -6,13 +6,13 @@
 	},
 	"item": [
 		{
-			"name": "localhost:3000/status/update",
+			"name": "Create Status",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"text\": \"This is first Stauts\"\n}",
+					"raw": "{\n\t\"text\": \"This is Second Stauts\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -34,7 +34,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/status",
+			"name": "Get all Status",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -52,7 +52,7 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/status/fl8q4vtaqrf",
+			"name": "Update Status",
 			"request": {
 				"method": "PATCH",
 				"header": [],
@@ -66,21 +66,21 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/status/fl8q4vtaqrf",
+					"raw": "localhost:3000/status/5ebe95bb1f6ef13be86e2099",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"status",
-						"fl8q4vtaqrf"
+						"5ebe95bb1f6ef13be86e2099"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "localhost:3000/status/fl8q4vtaqrf Copy",
+			"name": "Get Status from ID",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -99,19 +99,19 @@
 			"response": []
 		},
 		{
-			"name": "localhost:3000/status/fl8q4vtaqrf Copy Copy",
+			"name": "Delete Status with ID",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/status/sakhgrfzahm",
+					"raw": "localhost:3000/status/5ebe95bb1f6ef13be86e2099",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"status",
-						"sakhgrfzahm"
+						"5ebe95bb1f6ef13be86e2099"
 					]
 				}
 			},
