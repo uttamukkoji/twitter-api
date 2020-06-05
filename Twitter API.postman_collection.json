@@ -8,11 +8,21 @@
 		{
 			"name": "Create Status",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken_uttam}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"text\": \"This is Second Stauts\"\n}",
+					"raw": "{\n\t\"text\": \"Uttam Ukkoji Status\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -36,6 +46,16 @@
 		{
 			"name": "Get all Status",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken_uttam1}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -54,11 +74,21 @@
 		{
 			"name": "Update Status",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken_uttam}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"text\": \"New Status Update\"\n}",
+					"raw": "{\n\t\"text\": \"Uttam Ukkoji Update Status\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -66,14 +96,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/status/5ebe95bb1f6ef13be86e2099",
+					"raw": "localhost:3000/status/5eda4a0db40ac84ffe47816e",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"status",
-						"5ebe95bb1f6ef13be86e2099"
+						"5eda4a0db40ac84ffe47816e"
 					]
 				}
 			},
@@ -82,17 +112,27 @@
 		{
 			"name": "Get Status from ID",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken_uttam}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/status/fl8q4vtaqrf",
+					"raw": "localhost:3000/status/5eda4a0db40ac84ffe47816e",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"status",
-						"fl8q4vtaqrf"
+						"5eda4a0db40ac84ffe47816e"
 					]
 				}
 			},
@@ -101,17 +141,100 @@
 		{
 			"name": "Delete Status with ID",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken_uttam1}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/status/5ebe95bb1f6ef13be86e2099",
+					"raw": "localhost:3000/status/5eda49eab40ac84ffe47816d",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"status",
-						"5ebe95bb1f6ef13be86e2099"
+						"5eda49eab40ac84ffe47816d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign Up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "uttamukkoji",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "This5tR0ngPass",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/auth/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign In",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "uttamukkoji",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "This5tR0ngPass",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/auth/signin",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"signin"
 					]
 				}
 			},
