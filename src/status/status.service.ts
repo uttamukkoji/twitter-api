@@ -63,7 +63,6 @@ export class StatusService {
 
     private async findStatus(id: string): Promise<StatusModel> {
         const statusModel = await this.statusModel.findById(id)
-        console.log(statusModel);
         
         if (!statusModel) {
             throw new NotFoundException('Could not find Status.');

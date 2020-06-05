@@ -1,0 +1,4 @@
+db:
+  host: 'cluster0-bigbc.mongodb.net'
+  username: 'uttamtwitterdb'
+  password: 'iPWOuNrqhPZhnJEQ'
