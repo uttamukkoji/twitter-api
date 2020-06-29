@@ -1,4 +1,4 @@
-import { Injectable, ConflictException, InternalServerErrorException, UnauthorizedException } from '@nestjs/common';
+import { Injectable, ConflictException, InternalServerErrorException, UnauthorizedException, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt'
@@ -10,7 +10,10 @@ export class AuthService {
     constructor(
         @InjectModel('UserModel') private readonly userModel: Model<UserModel>,
         private jwtService: JwtService,
-        ) {}
+        private logger: Logger,
+        ) {
+            this.logger.setContext('AuthService')
+        }
 
     async signUp(authCredentialsDto: AuthCredentialsDto) {
         const { username, password } = authCredentialsDto;
@@ -23,6 +26,7 @@ export class AuthService {
         try {
             const signUpResult = await userModel.save();
         }catch (error) {
+            this.logger.error(`User Signup ${authCredentialsDto.username}.`, error.stack);
             if (error.code === 11000) {
                 throw new ConflictException('Username already exist');
             } else {
@@ -34,6 +38,7 @@ export class AuthService {
     async signIn(authCredentialsDto: AuthCredentialsDto) {
         const username = await this.validateUserPass(authCredentialsDto);
         if (!username) {
+            this.logger.error(`User Sign In ${authCredentialsDto.username}. Invalid credentials`);
             throw new UnauthorizedException('Invalid credentials')
         }
         const payload: JwtPayload = { username };
